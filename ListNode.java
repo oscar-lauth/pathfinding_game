@@ -1,23 +1,23 @@
-public class ListNode {
-	private Object value;
+public class ListNode<anyType> {
+	private anyType value;
 	private ListNode next;
-	public ListNode(Object v, ListNode n) {
-		value = v;
-		next = n;
+	public ListNode(anyType initValue, ListNode initNext) {
+		value = initValue;
+		next = initNext;
 	}
-	public ListNode(Object v) {
-		this(v,null);
+	public ListNode(anyType initValue) {
+		this(initValue,null);
 	}
-	public Object getValue() {
+	public anyType getValue() {
 		return value;
 	}
 	public ListNode getNext() {
 		return next;
 	}
-	public void setValue(Object newValue) {
-		value = v;
+	public void setValue(anyType newValue) {
+		value = newValue;
 	}
 	public void setNext(ListNode newNext) {
-		next = n;
+		next = newNext;
 	}
 }

@@ -16,13 +16,13 @@ public class MapUtilities {
 				for(int c=0;c<numCols;c++) {
 					char tileSymbol = rawRow.charAt(c);
 					if(tileSymbol=='0') { //blank tile
-						generatedMap[currentRow][c] = new Tile();
+						generatedMap[currentRow][c] = new Tile(currentRow,c);
 					}
 					else if(tileSymbol=='1') { //wall tile
-						generatedMap[currentRow][c] = new Tile("WALL");
+						generatedMap[currentRow][c] = new Tile(currentRow,c,"WALL");
 					}
 					else if(tileSymbol=='p') { //portal tile
-						generatedMap[currentRow][c] = new Tile("PORTAL");
+						generatedMap[currentRow][c] = new Tile(currentRow,c,"PORTAL");
 					}
 				}
 				currentRow++;

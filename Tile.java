@@ -2,19 +2,21 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.*;
 
-public class Tile extends JLabel{
+@SuppressWarnings("serial")
+public class Tile extends JLabel implements Comparable{
 	private boolean visited; //has the tile been visited
 	private boolean wall; //is the tile a wall
 	private int row;
 	private int col;
 	private Tile parent;
+	private double distance;
 
 	public Tile(int r,int c) { //creates blank Tile
 		row=r;
 		col=c;
 		super.setBackground(Color.white);
 		super.setOpaque(true);
-		super.setBorder(BorderFactory.createLineBorder(Color.CYAN));
+		//super.setBorder(BorderFactory.createLineBorder(Color.CYAN));
 		visited = false;
 		wall = false;
 	}
@@ -49,6 +51,7 @@ public class Tile extends JLabel{
 	}
 	public void setVisited() {
 		visited = true;
+		super.setBackground(Color.blue);
 	}
 	public boolean isWall() {
 		return wall;
@@ -67,5 +70,15 @@ public class Tile extends JLabel{
 	}
 	public Tile getParentTile() {
 		return parent;
+	}
+	public void setDistance(double dist) {
+		distance = dist;
+	}
+	public double getDistance() {
+		return distance;
+	}
+	public int compareTo(Object o) {
+		Tile that = (Tile)o;
+		return Double.valueOf(this.distance).compareTo(Double.valueOf(that.distance));
 	}
 }

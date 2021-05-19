@@ -13,12 +13,12 @@ public class BFS { //test class for BFS algorithim
 		goal=g;
 		end = null;}
 	public void BFSAlgo(){
-		Queue<Tile> visitedTiles = new LinkedList<Tile>();
+		Queue<Tile> visitedTiles = new LinkedList<Tile>(); //Queue that uses LinkedList
 		start.setVisited();
 		start.setParentTile(null);
-		visitedTiles.add(start);
+		visitedTiles.add(start); //enqueue start Tile
 		while(!visitedTiles.isEmpty()) {
-			Tile current = visitedTiles.remove();
+			Tile current = visitedTiles.remove(); //dequeue front Tile
 			ArrayList<Tile> neighbors = getValidNeighbors(current);
 			for(Tile n:neighbors) {
 				n.setVisited();
@@ -58,6 +58,9 @@ private boolean isValidIndex(int row,int col) {
 	}
 	public Stack<Tile> getPath() {
 		return path;
+	}
+	public boolean getFound() {
+		return found;
 	}
 
 }

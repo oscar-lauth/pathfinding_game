@@ -1,7 +1,7 @@
 public class ListNode<anyType> {
 	private anyType value;
-	private ListNode next;
-	public ListNode(anyType initValue, ListNode initNext) {
+	private ListNode<anyType> next;
+	public ListNode(anyType initValue, ListNode<anyType> initNext) {
 		value = initValue;
 		next = initNext;
 	}
@@ -11,13 +11,13 @@ public class ListNode<anyType> {
 	public anyType getValue() {
 		return value;
 	}
-	public ListNode getNext() {
+	public ListNode<anyType> getNext() {
 		return next;
 	}
 	public void setValue(anyType newValue) {
 		value = newValue;
 	}
-	public void setNext(ListNode newNext) {
+	public void setNext(ListNode<anyType> newNext) {
 		next = newNext;
 	}
 }

@@ -9,12 +9,12 @@ public class CLinkedList<anyType> {
 	}
 	public void add(anyType x) {
 		if(head==null) { //empty
-			head = new ListNode(x);
+			head = new ListNode<anyType>(x);
 			tail = head;
 			tail.setNext(head);
 		}
 		else {
-			tail.setNext(new ListNode(x));
+			tail.setNext(new ListNode<anyType>(x));
 			tail = tail.getNext();
 			tail.setNext(head);
 		}
@@ -22,20 +22,17 @@ public class CLinkedList<anyType> {
 	}
 	public void addFirst(anyType x) {
 		if(head==null) {
-			head = new ListNode(x);
+			head = new ListNode<anyType>(x);
 			tail = head;
 			tail.setNext(head);
 		}
 		else {
-			ListNode oldFirst = head;
-			head = new ListNode(x);
+			ListNode<anyType> oldFirst = head;
+			head = new ListNode<anyType>(x);
 			head.setNext(oldFirst);
 			tail.setNext(head);
 		}
 		size++;
-	}
-	public ListNode getHead() {
-		return head;
 	}
 	public void add(int index, anyType x) {
 		if(index == 0) {
@@ -45,11 +42,11 @@ public class CLinkedList<anyType> {
 			add(x);
 		}
 		else {
-			ListNode current = head;
+			ListNode<anyType> current = head;
 			for(int i=1;i<index;i++) { //sets current to ListNode before index
 				current = current.getNext();
 			}
-			current.setNext(new ListNode(x,current.getNext()));
+			current.setNext(new ListNode<anyType>(x,current.getNext()));
 			size++;
 
 		}
